@@ -1,9 +1,8 @@
-namespace Bookify.Domain.Entities.Apartments.ValueObjects;
+namespace Bookify.Domain.Entities.Shared;
 
 public record Currency
 {
     public string Code { get; init; }
-
     internal static readonly Currency None = new Currency("");
     public static readonly Currency USD = new Currency("USD");
     public static readonly Currency EUR = new Currency("EUR");
