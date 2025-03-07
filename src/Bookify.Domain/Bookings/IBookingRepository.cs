@@ -7,7 +7,7 @@ public interface IBookingRepository
 {
     Task<Booking?> GetById(Guid id, CancellationToken cancellationToken = default);
 
-    Task<bool> IsOverlappingAsync(
+    Task<bool> IsOverlapping(
         Apartment apartment,
         DateRange duration,
         CancellationToken cancellationToken = default);
