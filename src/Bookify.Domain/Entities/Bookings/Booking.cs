@@ -1,4 +1,5 @@
 using Bookify.Domain.Entities.Abstractions;
+using Bookify.Domain.Entities.Apartments;
 using Bookify.Domain.Entities.Bookings.Events;
 using Bookify.Domain.Entities.Bookings.ValueObjects;
 using Bookify.Domain.Entities.Shared;
@@ -46,15 +47,18 @@ public sealed class Booking : Entity
     }
 
     public static Booking Reverse(
-        Guid apartmentId,
+        Apartment apartment,
         Guid userId,
         DateRange duration,
         DateTime utcNow,
-        PricingDetails pricingDetails)
+        PricingService pricingService)
     {
+
+        var pricingDetails = pricingService.CalculatePrice(apartment, duration);
+
         var booking = new Booking(
             Guid.NewGuid(),
-            apartmentId,
+            apartment.Id,
             userId,
             duration,
             pricingDetails.PriceForPeriod,
@@ -65,6 +69,8 @@ public sealed class Booking : Entity
             utcNow);
 
         booking.Raise(new BookingReservedDomainEvent(booking.Id));
+
+        apartment.LastBookedOnUtc = utcNow;
 
         return booking;
     }
