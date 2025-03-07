@@ -101,4 +101,18 @@ public sealed class Booking : Entity
         RaiseDomainEvent(new BookingRejectedDomainEvent(Id));
         return Result.Success();
     }
+    public Result Complete(DateTime utcNow)
+    {
+        if (Status != BookingStatus.Confirmed)
+        {
+            return Result.Failure(BookingErrors.NotConfirmed);
+        }
+
+        Status = BookingStatus.Completed;
+        CompletedOnUtc = utcNow;
+
+        RaiseDomainEvent(new BookingCompletedDomainEvent(Id));
+
+        return Result.Success();
+    }
 }
