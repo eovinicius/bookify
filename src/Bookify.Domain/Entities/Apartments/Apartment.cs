@@ -1,5 +1,6 @@
 using Bookify.Domain.Entities.Abstractions;
 using Bookify.Domain.Entities.Apartments.ValueObjects;
+using Bookify.Domain.Entities.Shared;
 
 namespace Bookify.Domain.Entities.Apartments;
 
