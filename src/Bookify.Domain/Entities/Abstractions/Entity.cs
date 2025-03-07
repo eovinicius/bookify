@@ -11,7 +11,7 @@ public abstract class Entity
         DomainEvents = [];
     }
 
-    protected void Raise(IDomainEvent domainEvent)
+    protected void RaiseDomainEvent(IDomainEvent domainEvent)
     {
         DomainEvents.Add(domainEvent);
     }
