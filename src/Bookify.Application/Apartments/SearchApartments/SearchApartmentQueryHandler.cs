@@ -12,11 +12,11 @@ internal sealed class SearchApartmentQueryHandler
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
 
     private static readonly int[] ActiveBookingStatuses =
-{
+    [
         (int)BookingStatus.Reserved,
         (int)BookingStatus.Confirmed,
         (int)BookingStatus.Completed
-    };
+    ];
 
     public SearchApartmentQueryHandler(ISqlConnectionFactory sqlConnectionFactory)
     {
