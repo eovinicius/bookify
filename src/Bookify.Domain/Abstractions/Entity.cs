@@ -21,7 +21,7 @@ public abstract class Entity
         return DomainEvents.AsReadOnly();
     }
 
-    public void Clear()
+    public void ClearDomainEvents()
     {
         DomainEvents.Clear();
     }
