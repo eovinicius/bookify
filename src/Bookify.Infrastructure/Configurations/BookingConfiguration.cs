@@ -5,7 +5,7 @@ using Bookify.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Bookify.Infrastructure.Data.Configurations;
+namespace Bookify.Infrastructure.Configurations;
 
 internal sealed class BookingConfiguration : IEntityTypeConfiguration<Booking>
 {

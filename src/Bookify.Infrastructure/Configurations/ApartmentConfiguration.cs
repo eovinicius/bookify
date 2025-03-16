@@ -4,7 +4,7 @@ using Bookify.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Bookify.Infrastructure.Data.Configurations;
+namespace Bookify.Infrastructure.Configurations;
 
 internal sealed class ApartmentConfiguration : IEntityTypeConfiguration<Apartment>
 {
