@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Messaging;
+using Bookify.Application.Exceptions;
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
@@ -45,15 +46,22 @@ internal sealed class ReverseBookingCommandHandler : ICommandHandler<ReverseBook
             return Result.Failure<Guid>(BookingErrors.Overlap);
         }
 
-        var booking = Booking.Reverse(
-            apartment,
-            user.Id,
-            duration,
-            _dateTimeProvider.UtcNow,
-            _pricingServicel);
+        try
+        {
+            var booking = Booking.Reverse(
+                apartment,
+                user.Id,
+                duration,
+                _dateTimeProvider.UtcNow,
+                _pricingServicel);
 
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return Result.Success(booking.Id);
+            return booking.Id;
+        }
+        catch (CoucurrencyExecption)
+        {
+            return Result.Failure<Guid>(BookingErrors.Overlap);
+        }
     }
 }
