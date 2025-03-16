@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookify.Infrastructure.Data;
 
-public sealed class ApplicationDbContext : DbContext, IUnitOfWork
+internal sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
     public ApplicationDbContext(DbContextOptions options)
         : base(options)
