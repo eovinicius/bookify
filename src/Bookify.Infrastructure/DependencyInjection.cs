@@ -43,7 +43,7 @@ internal static class DependencyInjection
             new SqlConnectionFactory(connectionString));
 
         SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());
-        
+
         return services;
     }
 }
