@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Bookify.Infrastructure.Data.Configurations;
 
-public class ApartmentConfiguration : IEntityTypeConfiguration<Apartment>
+internal sealed class ApartmentConfiguration : IEntityTypeConfiguration<Apartment>
 {
     public void Configure(EntityTypeBuilder<Apartment> builder)
     {
