@@ -16,6 +16,7 @@ public class BookingsController : ControllerBase
         _sender = sender;
     }
 
+    [HttpGet("Id")]
     public async Task<IActionResult> GetBooking(Guid Id, CancellationToken cancellationToken)
     {
         var query = new GetBookingQuery(Id);
@@ -25,6 +26,7 @@ public class BookingsController : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : NotFound();
     }
 
+    [HttpPost]
     public async Task<IActionResult> ReserveBooking(ReserveBookingRequest request)
     {
         var command = new ReserveBookingCommand(request.ApartmentId, request.UserId, request.StartDate, request.EndDate);
