@@ -46,6 +46,8 @@ public sealed class Booking : Entity
         CreatedOnUtc = createdOnUtc;
     }
 
+    private Booking() { }
+
     public static Booking Reverse(
         Apartment apartment,
         Guid userId,
