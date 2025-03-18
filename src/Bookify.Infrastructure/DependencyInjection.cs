@@ -27,9 +27,9 @@ public static class DependencyInjection
             configuration.GetConnectionString("Database") ??
             throw new ArgumentException(null, nameof(configuration));
 
-        services.AddDbContext<ApplicationDbContext>(option =>
+        services.AddDbContext<ApplicationDbContext>(options =>
         {
-            option.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
+            options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
         });
 
         services.AddScoped<IBookingRepository, BookingRepository>();
