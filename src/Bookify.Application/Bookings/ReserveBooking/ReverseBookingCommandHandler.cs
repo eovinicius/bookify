@@ -11,7 +11,7 @@ using Bookify.Domain.Users;
 
 namespace Bookify.Application.Bookings.ReserveBooking;
 
-internal sealed class ReverseBookingCommandHandler : ICommandHandler<ReverseBookingCommand, Guid>
+internal sealed class ReverseBookingCommandHandler : ICommandHandler<ReserveBookingCommand, Guid>
 {
     private readonly IUserRepository _userRepository;
     private readonly IApartmentRepository _apartmentRepository;
@@ -29,7 +29,7 @@ internal sealed class ReverseBookingCommandHandler : ICommandHandler<ReverseBook
         _dateTimeProvider = dateTimeProvider;
     }
 
-    public async Task<Result<Guid>> Handle(ReverseBookingCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Guid>> Handle(ReserveBookingCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetById(request.UserId, cancellationToken);
 

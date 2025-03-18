@@ -2,7 +2,7 @@ using Bookify.Application.Abstractions.Messaging;
 
 namespace Bookify.Application.Bookings.ReserveBooking;
 
-public record ReverseBookingCommand(
+public record ReserveBookingCommand(
     Guid ApartmentId,
     Guid UserId,
     DateOnly StartDate,
