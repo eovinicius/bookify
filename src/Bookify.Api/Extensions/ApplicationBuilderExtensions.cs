@@ -1,5 +1,6 @@
 using Bookify.Api.Middleware;
 using Bookify.Infrastructure.Data;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Bookify.Api.Extensions;

@@ -1,5 +1,7 @@
 using Bookify.Application.Abstractions.Messaging;
+
 using MediatR;
+
 using Microsoft.Extensions.Logging;
 
 namespace Bookify.Application.Abstractions.Behaviors;

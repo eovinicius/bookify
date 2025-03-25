@@ -1,6 +1,7 @@
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Messaging;
 using Bookify.Domain.Abstractions;
+
 using Dapper;
 
 namespace Bookify.Application.Bookings.GetBooking;

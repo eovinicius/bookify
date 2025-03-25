@@ -1,5 +1,7 @@
 using System.Data;
+
 using Bookify.Application.Abstractions.Data;
+
 using Npgsql;
 
 namespace Bookify.Infrastructure.Data;

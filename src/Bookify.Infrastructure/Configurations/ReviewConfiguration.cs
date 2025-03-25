@@ -2,6 +2,7 @@
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Reviews;
 using Bookify.Domain.Users;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

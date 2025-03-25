@@ -1,6 +1,7 @@
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Apartments.ValueObjects;
 using Bookify.Domain.Shared;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
