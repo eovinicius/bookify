@@ -20,15 +20,15 @@ services:
     ports:
       - 5432:5432
 
-  # bookify-idp:
-  #   image: jboss/keycloak:latest
-  #   container_name: Bookify.Identity
-  #   environment:
-  #     - KEYCLOAK_USER=admin
-  #     - KEYCLOAK_PASSWORD=admin
-  #     - KEYCLOAK_IMPORT=/tmp/bookify-realm-export.json
-  #   volumes:
-  #     - ./containers/identity:/opt/jboss/keycloak/standalone/data
-  #     - ./files/bookify-realm-export.json:/tmp/bookify-realm-export.json
-  #   ports:
-  #     - 18080:8080
+  bookify-idp:
+    image: quay.io/keycloak/keycloak
+    container_name: Bookify.Identity
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_IMPORT=/tmp/bookify-realm-export.json
+    volumes:
+      - ./containers/identity:/opt/jboss/keycloak/standalone/data
+      - ./files/bookify-realm-export.json:/tmp/bookify-realm-export.json
+    ports:
+      - 18080:8080
