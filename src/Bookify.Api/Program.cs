@@ -4,21 +4,23 @@ using Bookify.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseUrls("http://*:5000");
 
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
-
 builder.Services.AddApplication();
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    builder.WebHost.UseUrls("http://*:5000");
+
     app.UseSwagger();
     app.UseSwaggerUI();
 
