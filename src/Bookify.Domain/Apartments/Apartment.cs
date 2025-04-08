@@ -17,14 +17,14 @@ public sealed class Apartment : Entity
     private Apartment() { }
 
     public Apartment(
-        Guid Id,
+        Guid id,
         Name name,
         Description description,
         Address address,
         Money price,
         Money cleaningFee,
         List<Amenity> amenities)
-        : base(Id)
+        : base(id)
     {
         Name = name;
         Description = description;
