@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Messaging;
